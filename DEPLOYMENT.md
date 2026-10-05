@@ -1,6 +1,6 @@
 # 访问故障与迁移记录
 
-排查日期：2026-10-05（北京时间）。
+排查日期：2026-10-05；迁移完成：2026-10-06（北京时间）。
 
 ## 已确认
 
@@ -20,6 +20,8 @@ Cloudflare 的 [403 官方说明](https://developers.cloudflare.com/support/trou
 
 已经准备 `.github/workflows/pages.yml`，流程为：推送 main → 测试 → 语法检查 → 上传 dist → 发布 Pages。网页资源使用相对路径，可部署到仓库子路径。流程依据 [GitHub 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。
 
-尚未完成：当前浏览器未登录 GitHub，也没有可用的已认证发布工具。需要用户登录后创建或选择仓库，将源码上传，再在 Settings → Pages → Source 中选择 GitHub Actions。部署成功后须在用户的 Chrome 中实际打开新网址、验证照片选择与导出，才算完成线上迁移。
+已完成：源码上传到公开仓库 [zhoutz050417/triptone](https://github.com/zhoutz050417/triptone)，Pages 使用 GitHub Actions 发布。新的演示地址为 [https://zhoutz050417.github.io/triptone/](https://zhoutz050417.github.io/triptone/)。首次工作流测试、语法检查和部署全部成功；主页面、样式、脚本与示例资源均返回 HTTP 200。Chrome 实际验证了样片加载、情绪冷灰切换、JPG 导出和照片选择后的预览，导出图片为 1800 × 1200。
+
+关闭标签页后，重新打开新演示地址即可。离线版本可作为网络访问异常时的备用方式；原 `chatgpt.site` 的 Cloudflare 拦截并未解除。
 
 原 Sites 访问范围保持不变，未改为公开。GitHub 发布时不要上传 `.git/`、`.openai/` 或本地照片；源码包已排除这些托管及本地元数据。GitHub Pages 自身也受访问网络及平台可用性影响，不能保证任何网络环境下永远可访问。

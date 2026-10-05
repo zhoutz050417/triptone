@@ -2,6 +2,8 @@
 
 一个操作简单的旅行照片氛围调色网页。上传照片，一次查看四种效果，调节浓度，对比原图，下载喜欢的结果。
 
+[在线体验](https://zhoutz050417.github.io/triptone/) · [GitHub 仓库](https://github.com/zhoutz050417/triptone)
+
 ## 第一版功能
 
 - 暖调胶片、清透海边、情绪冷灰、柔和暮色四种像素调色。
@@ -58,7 +60,7 @@ tests/             算法测试
 
 ## GitHub 与部署
 
-将本目录作为仓库根目录即可。已提供 `.github/workflows/pages.yml`：推送到 `main` 后先运行检查，再将 `dist/` 发布到 GitHub Pages。在仓库 Settings → Pages → Source 中选择 GitHub Actions。首次发布须等 Actions 成功，再以实际返回的网址为准；当前尚未完成 GitHub 发布。此配置按 [GitHub 官方文档](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) 编写。
+将本目录作为仓库根目录即可。已提供 `.github/workflows/pages.yml`：推送到 `main` 后先运行检查，再将 `dist/` 发布到 GitHub Pages。在仓库 Settings → Pages → Source 中选择 GitHub Actions。当前已发布到 [GitHub Pages](https://zhoutz050417.github.io/triptone/)，2026-10-06 已通过远程检查及 Chrome 实际上传、滤镜切换和 JPG 导出验证。此配置按 [GitHub 官方文档](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) 编写。
 
 `.openai/hosting.json` 是旧 Sites 托管的配置，迁移到其他服务时不需要它。旧 `chatgpt.site` 地址反复出现 Cloudflare 403，部署成功不能证明访问正常；当前工具无法管理该域名的防火墙规则，不将它作为可用的演示地址。照片处理不需要账号、API key 或模型费用。
 
