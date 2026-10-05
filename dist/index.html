@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="旅色 TripTone：让旅行照片拥有你的氛围。上传、选择风格、对比、下载，照片只在你的浏览器里处理。">
+  <meta name="theme-color" content="#f6f5ef">
+  <title>旅色 TripTone · 把旅途调成你的心情</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="旅色首页"><span class="brand-icon">t<span>↗</span></span><strong>旅色<span>TRIPTONE</span></strong></a>
+    <nav aria-label="页面导航"><a class="nav-active" href="#studio">照片工作台</a><button id="about-button" class="nav-link">关于旅色 <span>↗</span></button></nav>
+    <span class="header-note"><i></i> 让好看的照片，更简单</span>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="headline">
+      <div><p class="eyebrow"><span></span> A LITTLE COLOR, A LOT OF FEELING</p><h1 id="headline">把旅途，调成<span>你的心情。</span></h1><p class="intro-copy">普通的旅行照片，也能有自己的氛围。选一种喜欢的感觉，剩下的交给旅色。</p></div>
+      <div class="intro-side"><span class="stamp">KEEP THE<br>FEELING <b>✳</b></span><p>风景会过去，<br>感觉可以留下。</p></div>
+    </section>
+
+    <section id="studio" class="studio" aria-label="照片调色工作台">
+      <div class="photo-panel">
+        <div class="panel-heading"><span><i class="live-dot"></i> 你的旅行瞬间</span><span id="image-info">正在准备样片…</span></div>
+        <div id="drop-zone" class="drop-zone">
+          <div id="image-frame" class="image-frame">
+            <canvas id="original-canvas" aria-label="原始照片"></canvas>
+            <canvas id="result-canvas" aria-label="滤镜效果"></canvas>
+            <div class="image-label original-label">原图</div><div id="result-label" class="image-label result-label">暖调胶片</div>
+            <div id="compare-line" class="compare-line"><span>‹ ›</span></div>
+            <input id="compare-slider" type="range" min="0" max="100" value="48" aria-label="拖动比较原图与滤镜效果">
+          </div>
+          <div id="drop-overlay" class="drop-overlay" hidden><span>↥</span>松开，换一个旅行瞬间</div>
+          <div id="empty-state" class="empty-state" hidden><span>↥</span><p>把照片拖到这里，或点击下方上传</p></div>
+        </div>
+        <div class="photo-toolbar"><span class="compare-tip">↔ 拖动照片上的分界线，看看变化</span><button id="compare-button" class="quiet-button" aria-pressed="true">关闭对比</button></div>
+        <div class="upload-row">
+          <label class="upload-button" for="file-input"><span>＋</span> 上传我的照片<input id="file-input" type="file" accept="image/jpeg,image/png,image/webp"></label>
+          <button id="demo-button" class="quiet-button">试试样片 <span>↗</span></button>
+          <span class="file-hint">JPG / PNG / WEBP · 最大 30 MB</span>
+        </div>
+        <p id="resize-note" class="resize-note" hidden></p>
+      </div>
+
+      <aside class="controls" aria-label="滤镜与导出设置">
+        <div class="controls-title"><div><p class="eyebrow">FIND YOUR MOOD</p><h2>今天，是什么感觉？</h2></div><span class="count">04</span></div>
+        <div id="preset-list" class="preset-list" aria-label="选择滤镜"></div>
+        <div class="adjustment"><div class="control-label"><label for="intensity">氛围浓度</label><output id="intensity-value" for="intensity">75%</output></div><input id="intensity" type="range" min="0" max="100" value="75"><div class="range-labels"><span>轻一点</span><span>浓一点</span></div></div>
+        <label class="auto-row" for="auto-light"><span><strong>自动调整光线</strong><small>根据照片亮度，轻轻修正曝光</small></span><input id="auto-light" type="checkbox" checked><span class="toggle" aria-hidden="true"></span></label>
+        <div class="export-row"><label for="export-format">保存格式</label><select id="export-format"><option value="jpeg">JPG · 适合分享</option><option value="png">PNG · 无损编码</option></select></div>
+        <button id="download-button" class="download-button" disabled><span>保存这份感觉</span><span>↓</span></button>
+        <p class="privacy-note"><span>◈</span> 照片仅在本机处理，不上传服务器</p>
+      </aside>
+    </section>
+
+    <section class="steps" aria-label="使用方法"><div><span>01</span><p><strong>带来一张照片</strong><small>风景、街头，或途中的你</small></p></div><div><span>02</span><p><strong>选一种心情</strong><small>四种风格，一眼找到喜欢的</small></p></div><div><span>03</span><p><strong>留住这一刻</strong><small>保存照片，把氛围带走</small></p></div><span class="steps-flower">✳</span></section>
+  </main>
+  <footer><span>旅色 TRIPTONE <span class="footer-dot">·</span> 为每一段旅途，留一点颜色。</span><span>MADE FOR YOUR LITTLE ESCAPES ↗</span></footer>
+  <div id="status" role="status" aria-live="polite" class="toast" hidden></div>
+  <dialog id="about-dialog"><button id="close-about" class="close-dialog" aria-label="关闭">×</button><p class="eyebrow">ABOUT TRIPTONE</p><h2>留住旅途的感觉。</h2><p>旅色是一个轻量的旅行照片调色工作台。上传照片，一次预览四种风格，调一点浓度，然后保存。</p><p>第一版采用本地像素调色与基于亮度的自动曝光修正。AI 场景识别与风格推荐是后续计划。</p><p>支持 JPG、PNG、WEBP；导出最长边不超过 4096 像素。JPG 的透明区域会填充白色，PNG 保留透明度。</p><a href="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1" target="_blank" rel="noopener noreferrer">示例照片来源：Unsplash ↗</a></dialog>
+</body>
+</html>
