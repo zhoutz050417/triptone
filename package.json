@@ -1,0 +1,12 @@
+{
+  "name": "triptone",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A browser-local travel photo color grading studio",
+  "scripts": {
+    "start": "python3 -m http.server 4173 --bind 127.0.0.1 --directory dist",
+    "test": "node --test tests/*.test.js",
+    "check": "node --check dist/app.js && node --check dist/filters.js"
+  }
+}
